@@ -1,0 +1,2 @@
+//Acquire::http::proxy "http://aptproxy.vxlab.rmit.edu.au:3142";
+Acquire::http::proxy "http://aptproxy:3142";
