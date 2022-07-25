@@ -1,2 +1,5 @@
 //Acquire::http::proxy "http://aptproxy.vxlab.rmit.edu.au:3142";
-Acquire::http::proxy "http://aptproxy:3142";
+Acquire::http::proxy "http://131.170.250.250:3142";
+//Acquire::http::proxy "http://aptproxy:3142";
+
+Acquire::http::Proxy { download.docker.com DIRECT; };
