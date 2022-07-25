@@ -1,0 +1,45 @@
+ Input mode detection supported ?         No
+Supported video input connections (-i [input #]:
+  2: HDMI, 8: Component, 32: S-Video, 
+Selecting mode: HD 1080p 30
+Before Input configured for HDMI
+Flicker removal set : 1
+bmdDeckLinkConfigUse1080pNotPsF: 1
+After Input configured for HDMI
+GetFrameRate:      30000       1000 --> fps 30
+SAIL configuration was initialized by decklinkcapture.conf
+	width 1920 height 1080 fps 30
+useYUV422SAIL initialized[2015-06-12 15:30:22] [application] WebSocketIO> connected to ws://10.234.2.22:9280
+WebSocketIO> connected to ws://10.234.2.22:9280
+Sent addClient
+SAGE2 ID> 10.234.2.57:47889
+
+Sending startNewMediaBlockStream
+ Input mode detection supported ?         No
+Supported video input connections (-i [input #]:
+  2: HDMI, 8: Component, 32: S-Video, 
+Selecting mode: HD 1080p 30
+Before Input configured for HDMI
+Flicker removal set : 1
+bmdDeckLinkConfigUse1080pNotPsF: 1
+After Input configured for HDMI
+GetFrameRate:      30000       1000 --> fps 30
+SAIL configuration was initialized by decklinkcapture.conf
+	width 1920 height 1080 fps 30
+benchmark timing/performance
+useYUV422
+SAIL initialized[2015-06-15 17:47:38] [application] WebSocketIO> connected to ws://10.234.2.22:9280
+WebSocketIO> connected to ws://10.234.2.22:9280
+Sent addClient
+SAGE2 ID> 10.234.2.57:33677
+
+Sending startNewMediaBlockStream
+Caught signal [2]
+WEBSOCKET OPEN
+SAGE2: frame 1
+SAGE2: frame 2
+SAGE2: frame 3
+SAGE2: frame 4
+SAGE2: frame 5
+SAGE2: frame rate 4.159773 - sent 25 frames in 6.009943s
+SAGE2: frame rate 5.292779 - sent 50 frames in 9.446833s

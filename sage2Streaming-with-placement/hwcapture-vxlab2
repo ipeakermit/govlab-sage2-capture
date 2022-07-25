@@ -1,0 +1,2 @@
+//./decklinkcapture -d 0 -m 9 -i 2 -o 10.234.2.22:9180 -w "Laptop 2" $*
+./decklinkcapture -d 0 -m 9 -i 2 -o 10.234.2.22:9180 "Laptop 2" $*
