@@ -20,3 +20,17 @@ COPY sage2Streaming-with-placement /root/src
 WORKDIR /root/src
 
 RUN make
+
+# black magic design drivers
+WORKDIR /root
+COPY Blackmagic_Desktop_Video_Linux_10.9.12.tar /root/blackmagic.tar
+RUN tar zxfp /root/blackmagic.tar
+WORKDIR /root/Blackmagic_Desktop_Video_Linux_10.9.12/deb/x86_64
+RUN apt update && apt install -y libatk1.0-0 
+RUN apt update && apt install -y dkms
+#RUN apt update && apt install -y linux-headers-generic
+RUN apt update && apt install -y linux-headers-4.4.0-134-generic
+RUN dpkg -i desktopvideo_*.deb
+
+WORKDIR /root
+COPY cmd cmd
