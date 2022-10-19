@@ -1,0 +1,43 @@
+#!/bin/bash
+echo `hostname`
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib
+MODE=${1:-7}
+INPUT=${2:-vc1}
+echo Mode $MODE
+#decklinkcapture -v 2>&1 | grep "${MODE}:"
+#case $MODE in
+#   "")
+#   MODE=9
+#   ;;
+#esac
+
+case $INPUT in
+  "") TITLE=`hostname`
+  ;;
+esac
+
+#SAGE2=10.234.2.22:9280
+#SAGE2=131.170.250.92:9280
+#SAGE2=`cat /home/sage/script/sage2-govlab-server-location`
+SAGE2=${3:-10.234.2.169:9293}
+
+case $# in
+   7)
+      geometry="-l $4,$5,$6,$7"
+   ;;
+   *)
+      geometry='-l 5880,-40,3840,2160'
+   ;;
+esac
+
+#/home/sage/sage2/sage2_apps/sage2Streaming/decklinkcapture -d 0 -m $MODE -i 2 -o ws://10.234.2.22:9280
+# -b - benchmark
+# -w - window title
+#/home/sage/sage2/sage2_apps/sage2Streaming/decklinkcapture -d 0 -m $MODE -i 2 -o $SAGE2:9280 -g -b -w $INPUT
+#/home/sage/sage2/sage2_apps/sage2Streaming/decklinkcapture -d 0 -m $MODE -i 2 -o $SAGE2:9293 -g -b -w $INPUT
+
+#/home/sage/sage2/sage2_apps/sage2Streaming-with-placement/decklinkcapture -d 0 -m $MODE -i 2 -o $SAGE2 -g -b -w $INPUT $geometry
+
+set -xv
+docker rm -f sage2capture
+docker run -i --privileged --net=host --name sage2capture sage2capture src/decklinkcapture -d 0 -m $MODE -i 2 -o $SAGE2 -g -b -w $INPUT $geometry

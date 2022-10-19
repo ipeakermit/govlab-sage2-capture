@@ -134,7 +134,7 @@ AVFrame *alloc_picture(enum PixelFormat pix_fmt, int width, int height)
 }
 
 	//< packed YUV 4:2:2, 16bpp, Y0 Cb Y1 Cr
-#define SAGE_YUV   PIX_FMT_YUYV422
+#define SAGE_YUV   AV_PIX_FMT_YUYV422
 
 	//< packed YUV 4:2:2, 16bpp, Cb Y0 Cr Y1
 //#define SAGE_YUV   PIX_FMT_UYVY422
@@ -258,7 +258,7 @@ HRESULT DeckLinkCaptureDelegate::VideoInputFrameArrived(IDeckLinkVideoInputFrame
 					//sws_scale(img_convert_toplanar, picture_curr->data, picture_curr->linesize, 0,
                                                                     sageH, picture_next->data, picture_next->linesize);
 					// Deinterlacing (in place)
-					ret = avpicture_deinterlace(picture_next, picture_next, PIX_FMT_YUV422P, sageW, sageH);
+					ret = avpicture_deinterlace(picture_next, picture_next, AV_PIX_FMT_YUV422P, sageW, sageH);
 					if (ret!=0)
 						sage::printLog("Deinterlace error %d", ret);
 
@@ -1003,7 +1003,7 @@ int main(int argc, char* argv[]) {
 		//////////////////////////////////
 #endif
         avpicture_alloc(&picture_yuv420p, AV_PIX_FMT_YUV420P, sageW, sageH);
-        img_convert_toyuv420p = sws_getContext(sageW, sageH, PIX_FMT_UYVY422, sageW, sageH, AV_PIX_FMT_YUV420P, 0, 0, 0, 0);
+        img_convert_toyuv420p = sws_getContext(sageW, sageH, AV_PIX_FMT_UYVY422, sageW, sageH, AV_PIX_FMT_YUV420P, 0, 0, 0, 0);
 
         //////// NO SAM Support now, so remove!
 #if 0
